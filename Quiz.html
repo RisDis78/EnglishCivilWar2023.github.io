@@ -1,0 +1,110 @@
+</header>
+
+<!-- Your quiz code goes here -->
+<center>
+<h1>English Civil War Quiz</h1>
+</center>
+<center>
+<div>
+<form id="quizForm">
+    <ol>
+        <li>
+            <h3>What was the name of the party that King Charles I formed?</h3>
+            <input type="radio" name="q1" value="a">The Royalists<br>
+            <input type="radio" name="q1" value="b">The Parliemenatrians<br>
+            <input type="radio" name="q1" value="c">Repubilcans<br>
+        </li>
+        <li>
+            <h3>Who won the english civil war?</h3>
+            <input type="radio" name="q2" value="c">Abraham Lincoln<br>
+            <input type="radio" name="q2" value="a">The Parlimenatarians<br>
+            <input type="radio" name="q2" value="c">Marie-Curie<br>
+        </li>
+        <li>
+            <h3>What goverment is applied in England today?</h3>
+            <input type="radio" name="q3" value="a">Constitutional Democracy<br>
+            <input type="radio" name="q3" value="c">Democracy<br>
+            <input type="radio" name="q3" value="b">Oligarchy<br>
+        </li>
+        <!-- Add more questions here -->
+        <li>
+            <h3>What goverment was applied before the war?</h3>
+            <input type="radio" name="q4" value="c">Autocracy<br>
+            <input type="radio" name="q4" value="a">Absolute Monarchy<br>
+            <input type="radio" name="q4" value="c">Option C<br>
+        </li>
+        <li>
+            <h3>Before the war, were you allowed to choose your own religion?</h3>
+            <input type="radio" name="q5" value="c">Yes<br>
+            <input type="radio" name="q5" value="b">Maybe<br>
+            <input type="radio" name="q5" value="a">No<br>
+        </li>
+        <li>
+            <h3>When did the war start?</h3>
+            <input type="radio" name="q6" value="b">1654<br>
+            <input type="radio" name="q6" value="a">1642<br>
+            <input type="radio" name="q6" value="c">1645<br>
+        </li>
+        <li>
+            <h3>When did the war end?</h3>
+            <input type="radio" name="q6" value="b">1648<br>
+            <input type="radio" name="q6" value="c">1683<br>
+            <input type="radio" name="q6" value="a">1651<br>
+        </li>
+        <li>
+            <h3>King Charles I went on trial and recieved charges of...?</h3>
+            <input type="radio" name="q6" value="c">Manslaughter<br>
+            <input type="radio" name="q6" value="a">Treason<br>
+            <input type="radio" name="q6" value="b">Fraud<br>
+        </li>
+        <li>
+            <h3>After the war, who had more power?</h3>
+            <input type="radio" name="q6" value="b">The Royalists<br>
+            <input type="radio" name="q6" value="a">The Parlimenatarians<br>
+            <input type="radio" name="q6" value="c">Conservative Party<br>
+        </li>
+        <li>
+            <h3>What was one of the reasons of why trade in England disrupted, because of the war?</h3>
+            <input type="radio" name="q6" value="b">People saw them as monsters<br>
+            <input type="radio" name="q6" value="a">Everybody was focused on fighting<br>
+            <input type="radio" name="q6" value="c">They did not like other countries.<br>
+        </li>
+        
+    </ol>
+    <input type="submit" value="Submit">
+</form>
+</div>
+</center>
+<div id="results"></div>
+<script>
+    const quizForm = document.getElementById('quizForm');
+    const results = document.getElementById('results');
+
+    quizForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const score = calculateScore();
+        displayResults(score);
+    });
+
+    function calculateScore() {
+        let score = 0;
+        const answers = ["a", "a", "a", "a", "a", "a"]; // Correct answers
+
+        for (let i = 1; i <= 6; i++) {
+            const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selectedOption) {
+                if (selectedOption.value === answers[i - 1]) {
+                    score++;
+                }
+            }
+        }
+
+        return score;
+    }
+
+    function displayResults(score) {
+        results.innerHTML = `<p>You scored ${score} out of 6.</p>`;
+    }
+</script>
+</body>
+</html>
